@@ -1,5 +1,7 @@
 FROM java:8
 VOLUME /tmp
+ARG DOCKER_GID=999
+USER jenkins:${DOCKER_GID}
 ADD demo-0.0.1-SNAPSHOT.jar app.jar
 RUN bash -c 'touch /app.jar'
 EXPOSE 8761
